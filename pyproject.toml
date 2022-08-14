@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "pyproject"
+version = "0.1.0"
+description = ""
+authors = ["rein14 <reinrich14@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+uvicorn = "^0.18.2"
+fastapi = "^0.79.0"
+transformers = "^4.21.1"
+
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pylint = "^2.14.5"
+black = {version = "^22.6.0", allow-prereleases = true}
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
