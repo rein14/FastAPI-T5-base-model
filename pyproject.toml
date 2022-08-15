@@ -8,7 +8,8 @@ authors = ["rein14 <reinrich14@gmail.com>"]
 python = "^3.9"
 uvicorn = "^0.18.2"
 fastapi = "^0.79.0"
-transformers = "^4.21.1"
+transformers = {extras = ["torch"], version = "^4.21.1"}
+sentencepiece = "^0.1.97"
 
 
 [tool.poetry.dev-dependencies]
