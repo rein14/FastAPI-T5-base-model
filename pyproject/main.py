@@ -10,7 +10,6 @@ model = T5ForConditionalGeneration.from_pretrained("t5-small", return_dict=True)
 
 
 app = FastAPI()
-app.include_router(api_router)
 
 
 @app.get("/", include_in_schema=False)
@@ -19,7 +18,7 @@ async def root():
     return RedirectResponse(url="/docs")
 
 
-@app.post(
+@api_router.post(
     "/translate",
     status_code=status.HTTP_200_OK,
     response_description="Text Translated",
@@ -37,3 +36,5 @@ async def translate_fn(
     decoded = tokenizer.decode(outputs[0], skip_special_tokens=True)
 
     return decoded
+
+app.include_router(api_router)
