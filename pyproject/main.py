@@ -21,7 +21,7 @@ async def root():
 @api_router.post(
     "/translate",
     status_code=status.HTTP_200_OK,
-    response_description="Text Translated",
+    response_description="Sucess",
 )
 async def translate_fn(
     source_language: SupportedLanguages,
