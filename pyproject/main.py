@@ -4,12 +4,16 @@ from transformers import T5ForConditionalGeneration, T5Tokenizer
 
 from .core.config import api_router
 from .schemes.translate import SupportedLanguages
+from dataclasses import dataclass
+
+app = FastAPI()
 
 tokenizer = T5Tokenizer.from_pretrained("t5-small")
 model = T5ForConditionalGeneration.from_pretrained("t5-small", return_dict=True)
 
-
-app = FastAPI()
+@dataclass
+class Languages:
+    status : SupportedLanguages
 
 
 @app.get("/", include_in_schema=False)
@@ -24,8 +28,8 @@ async def root():
     response_description="Success",
 )
 async def translate_fn(
-    source_language: SupportedLanguages,
-    destination_language: SupportedLanguages,
+    source_language: Languages,
+    destination_language: Languages,
     input_text,
 ):
     """Translate text base defined source to destination"""

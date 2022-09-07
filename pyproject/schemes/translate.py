@@ -1,6 +1,5 @@
 from enum import Enum
-
-
+ 
 class SupportedLanguages(str, Enum):
     """Languages supported by the t5-base model"""
 
@@ -8,3 +7,5 @@ class SupportedLanguages(str, Enum):
     FRENCH = "French"
     ROMANIAN = "Romanian"
     GERMAN = "German"
+
+
